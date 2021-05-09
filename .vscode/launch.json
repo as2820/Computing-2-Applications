@@ -2,13 +2,17 @@
     "version": "0.2.0",
     "configurations": [
       {
-        "name": "fx-dev debug",
-        "type": "firefox",
+        "name": "Launch Webserver",
+        "type": "pwa-node",
         "request": "launch",
-        "reAttach": true,
+        /*"reAttach": true,
         "reloadOnAttach": true,
         "file": "${fileDirname}/index.html",
-        "preferences": {
+        "preferences": {*/
+        "skipFiles": [
+            "<node_internals>/**"
+        ],
+        "program": "${workspaceFolder}/web-app/server.js",
           "security.fileuri.strict_origin_policy": false
         }
       }
