@@ -38,8 +38,10 @@ Exam.merge_sentences = function () {
 //     for example:
 //          the input "sPonGe bOb"
 //          returns 6
-Exam.lowercase_count = function () {
-    return;
+Exam.lowercase_count = function (str) {
+    const regex = /[a-z]/g;
+    const lower = str.match(regex);
+    return lower.length;
 };
 
 
