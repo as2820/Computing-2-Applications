@@ -11,10 +11,9 @@
 <!-- Below is an example html web page. -->
 <h1>Minimal Mood Tracker</h1>
 
-<h2>Structure</h2>
+<h2>Welcome!</h2>
 <p>
-    This example defines the structure of a minimal functioning web app.
-    It is set up in the reccomended structure for your apps.
+    How has your day been?
 </p>
 
 <ul>
@@ -47,11 +46,30 @@
 <textarea id="output_pane" readonly="readonly"></textarea>
 <button id="send_button" type="button">Send…</button>
 
-<h2>Tasks</h2>
 <p>
-    To make sure you've set up your environment correctly,
-    complete the following tasks:
-    <ol>
+    <label for= "emotion"> How are you feeling today?</label>
+    <select name = "emotion" id="emotion">
+        <option value = "happy"> Happy </option>
+        <option value = "grateful"> Grateful </option>
+        <option value = "confident"> Confident </option>
+        <option value = "optimistic"> Optimistic </option>
+        <option value = "excited"> Excited </option>
+        <option value = "hopeful"> Hopeful </option>
+        <option value = "meh"> Meh </option>
+        <option value = "bad"> Bad </option>
+        <option value = "anxious"> Anxious </option>
+        <option value = "bored"> Bored </option>
+        <option value = "frustrated"> Frustrated </option>
+        <option value = "exhausted"> Exhausted </option>
+        <option value = "stressed"> Stressed </option>
+        <option value = "overwhelmed"> Overwhelmed </option>
+        <option value = "angry"> Angry </option>
+        <option value = "lonely"> Lonely </option>
+    </select>
+
+
+
+    <ul>
         <li><input type="checkbox"> Happy</li>
         <li><input type="checkbox">Sad </li>
         <li>
@@ -86,5 +104,5 @@
             </ol>
         </li>
         <li><input type="checkbox">Edit the README.md file in your submission repo with your CID and push.</li>
-    </ol>
+    </ul>
 </p>

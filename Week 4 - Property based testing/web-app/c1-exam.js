@@ -9,7 +9,7 @@ const Exam = Object.create(null);
 
 // Lists
 
-// Write a function that returns a list containing every third item in
+// Write a function that returns a list containig every third item in
 // the original list starting with the first item.
 //    for example:
 //      an input list of [1,2,3,4,5,6,7,8]
@@ -29,8 +29,13 @@ Exam.every_third = function (array) {
 //       the input sentences "the cow jumped over the moon" and
 //                            "jack and jill went up the"
 //       returns "the jack cow and jumped jill over went the up moon the"
-Exam.merge_sentences = function () {
-    return;
+Exam.merge_sentences = function (s1, s2) {
+    const s1_words = s1.split(" ");
+    const s2_words = s2.split(" ");
+    if (s1_words.length !== s2_words.length) {
+        throw "ValueError";
+    }
+    return s1_words.flatMap((v, k) => [v, s2_words[k]]).join(" ");
 };
 
 // Write a function that returns the number of lowercase letters in
@@ -38,41 +43,29 @@ Exam.merge_sentences = function () {
 //     for example:
 //          the input "sPonGe bOb"
 //          returns 6
-Exam.lowercase_count = function (input_string) {
-    /*var count = 0;
-    var i = 0;
-    var character;
-    while (i < input_string.length()) {
-        character = input_string.charAt(i);
-        if (character === character.toLowerCase()) {
-            count += 1;
-        }
-        i += 1;
-    }
-    return count; */
-    const lc = "abcdefghijklmnopqrstuvwxyz";
-    const lowercase_letters = fc.constantFrom(
-        ...lc.split("")
-    );
-    const n_lowercase = (n) => fc.array(
-        lowercase_letters,
-        {"minLength": n, "maxLength": n}
-    ).map((arr) => arr.join(""));
-
-    const n_uppercase = (n) => n_lowercase(n).map((str) => str.toUpperCase());
+Exam.lowercase_count = function (string) {
+    const letters = string.split("");
+    return letters.filter((l) => l !== l.toUpperCase()).length;
 };
+
 
 // Objects
 
 // Write a function that returns the longest a key in the input object
 // whose keys are all strings.
-Exam.longest_key = function (input_object){
+Exam.longest_key = function (object) {
+    return Object.keys(object).reduce((a, x) => (
+        a.length >= x.length
+        ? a
+        : x
+    ));
 };
 
 // Write a function that returns the largest value that is an even value in the
 // input dictionary whose values are all whole numbers.
-Exam.value_greatest_even = function () {
-    return;
+Exam.value_greatest_even = function (object) {
+    const evens = Object.values(object).filter((v) => v % 2 === 0);
+    return Math.max(...evens);
 };
 
 
@@ -83,8 +76,8 @@ Exam.value_greatest_even = function () {
 //
 // The username argument should not be set to a default,
 // but the location argument should default to "London".
-Exam.greeting = function () {
-    return;
+Exam.greeting = function (name, location = "London") {
+    return `Hello, ${name}, how is ${location}?`;
 };
 
 
@@ -95,8 +88,8 @@ Exam.greeting = function () {
 //     offset with a default of 0
 // The function returns the calculation x * scalar + offset for the input x
 // if the output value of the calculation is positive, otherwise it returns 0.
-Exam.floor_line = function () {
-    return;
+Exam.floor_line = function (x, scalar, offset) {
+    return Math.max(0, scalar * x + offset);
 };
 
 export default Object.freeze(Exam);
